@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b3va3efhsw48l" path="res://image/mash/7.png" id="2_yarpa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rxr2x"]
-radius = 102.02
+radius = 101.02
 
 [node name="Mash7" instance=ExtResource("1_mmoss")]
 NextMash = ExtResource("2_lmsn3")
@@ -17,5 +17,5 @@ position = Vector2(98, 99)
 texture = ExtResource("2_yarpa")
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(99, 98)
+position = Vector2(98, 100)
 shape = SubResource("CircleShape2D_rxr2x")

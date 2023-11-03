@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bxkohmtr80s0"]
+[gd_scene load_steps=31 format=3 uid="uid://bxkohmtr80s0"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_dwjro"]
 [ext_resource type="PackedScene" uid="uid://d3r1wi4a6i07g" path="res://player.tscn" id="1_fuun5"]
@@ -45,12 +45,16 @@ font_color = Color(0, 1, 0.941176, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x32js"]
 size = Vector2(510.5, 20.0945)
 
+[sub_resource type="LabelSettings" id="LabelSettings_eklgd"]
+font_size = 36
+font_color = Color(0.486275, 0.72549, 0.901961, 1)
+
 [node name="main" type="Node2D"]
 script = ExtResource("1_dwjro")
 mash_scene = Array[PackedScene]([ExtResource("2_rb6v6"), ExtResource("3_pxa0b"), ExtResource("4_x1vnl"), ExtResource("5_guel4"), ExtResource("6_5m0ou"), ExtResource("7_amgj8"), ExtResource("8_afclt"), ExtResource("9_37a7f"), ExtResource("10_0nvcb"), ExtResource("11_bu3sq")])
 
 [node name="TextureRect" type="TextureRect" parent="."]
-anchors_preset = -1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -94,7 +98,7 @@ physics_material_override = SubResource("PhysicsMaterial_jdqr4")
 freeze = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wall_left"]
-position = Vector2(196, 355)
+position = Vector2(196, 378)
 shape = SubResource("RectangleShape2D_meiph")
 
 [node name="wall_right" type="RigidBody2D" parent="."]
@@ -164,7 +168,25 @@ texture_normal = ExtResource("20_38jwc")
 [node name="set" type="Sprite2D" parent="."]
 position = Vector2(114, 126)
 
+[node name="TIME" type="Timer" parent="."]
+
+[node name="Label" type="Label" parent="TIME"]
+offset_left = 1066.0
+offset_top = 5.0
+offset_right = 1280.0
+offset_bottom = 58.0
+label_settings = SubResource("LabelSettings_eklgd")
+
+[node name="start" type="Button" parent="."]
+offset_left = 369.0
+offset_top = 379.0
+offset_right = 589.0
+offset_bottom = 438.0
+text = "START"
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
 [connection signal="pressed" from="off" to="." method="_on_off_pressed"]
 [connection signal="pressed" from="on" to="." method="_on_on_pressed"]
+[connection signal="timeout" from="TIME" to="." method="_on_time_timeout"]
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]

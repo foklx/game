@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dmmn8iblor27c" path="res://marshscene/mash_9.tscn" id="2_20wmo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5ush8"]
-radius = 122.147
+radius = 121.057
 
 [node name="Mash8" instance=ExtResource("1_7ly7v")]
 NextMash = ExtResource("2_20wmo")

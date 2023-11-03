@@ -1,3 +1,6 @@
+Button
+Label
+Timer
 TextEdit
 TextureRect
 CanvasLayer
@@ -12,9 +15,6 @@ TextureProgressBar
 MenuBar
 TabBar
 AudioStreamPlayer
-Button
-Timer
 CollisionShape2D
 RigidBody2D
-Label
 Node2D

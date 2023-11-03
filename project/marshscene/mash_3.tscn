@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://xbmavg67ibpe" path="res://image/mash/3.png" id="2_irky0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_othtc"]
-radius = 52.0096
+radius = 51.2445
 
 [node name="Mash3" instance=ExtResource("1_4qst7")]
 NextMash = ExtResource("2_aco4o")

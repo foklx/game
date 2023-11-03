@@ -4,7 +4,8 @@ var nowIndex
 var nextIndex = randi_range(0,3)
 var totalscore=0
 var setindex=-1
-
+var min=0
+var sec=0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	change_image()
@@ -15,7 +16,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	$selectmash.position=$player.position
 	$selectmash.position.y=$player.position.y+70
-	if !$Button.button_pressed :
+	if !$Button.button_pressed and $start.visible==false:
 		if Input.is_action_just_pressed("drop"):
 			if $selectmash.visible:
 				if !$GameOver.visible:
@@ -65,7 +66,7 @@ func game_over():
 	$selectmash.hide()
 	$GameOver.show()
 	$Limit.get_node("CollisionShape2D").set_deferred("disabled",true)
-
+	$TIME.stop()
 
 
 func _on_button_pressed() -> void:
@@ -73,16 +74,17 @@ func _on_button_pressed() -> void:
 	$GameOver.hide()
 	$Limit.get_node("CollisionShape2D").set_deferred("disabled",false)
 	get_tree().call_group("Mashs","jump_out")
+	$TIME.stop()
+	min=0
+	sec=0
+	$start.visible=true
+	$TIME/Label.text=str(min)+":"+'0'+str(sec)
 	totalscore=0
 	setindex=-1
 	$set.texture=ImageTexture.new()
 	$score.text=str(totalscore)
 	change_image()
-	await get_tree().create_timer(0.2).timeout
-	
-	
 
-	
 
 
 func _on_on_pressed() -> void:
@@ -98,3 +100,22 @@ func _on_off_pressed() -> void:
 
 func _on_audio_stream_player_finished() -> void:
 	$AudioStreamPlayer.playing=true
+
+
+
+func _on_time_timeout() -> void:
+	if sec>=59:
+		min+=1
+		sec=0
+	else:
+		sec+=1
+	if sec<10:
+		$TIME/Label.text=str(min)+":"+'0'+str(sec)
+	else:
+		$TIME/Label.text=str(min)+":"+str(sec)
+
+
+func _on_start_pressed() -> void:
+	$TIME.start()
+	$start.visible=false
+	
