@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bij2b8ble6obs"]
+
+[ext_resource type="Texture2D" uid="uid://b2wxlthlq41x4" path="res://image/died.png" id="1_47ue7"]
+
+[node name="gameover" type="Sprite2D"]
+texture = ExtResource("1_47ue7")
+centered = false

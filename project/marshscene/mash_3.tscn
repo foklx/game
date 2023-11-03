@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://de3tnkgoixvcs"]
+
+[ext_resource type="PackedScene" uid="uid://bw1rawc3hqail" path="res://marshscene/base.tscn" id="1_4qst7"]
+[ext_resource type="PackedScene" uid="uid://dpqto4jk6l34u" path="res://marshscene/mash_4.tscn" id="2_aco4o"]
+[ext_resource type="Texture2D" uid="uid://xbmavg67ibpe" path="res://image/mash/3.png" id="2_irky0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_othtc"]
+radius = 52.0096
+
+[node name="Mash3" instance=ExtResource("1_4qst7")]
+NextMash = ExtResource("2_aco4o")
+GroupName = "Mash3s"
+score = 12
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_irky0")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_othtc")
+metadata/_edit_group_ = true

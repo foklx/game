@@ -1,0 +1,170 @@
+[gd_scene load_steps=30 format=3 uid="uid://bxkohmtr80s0"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_dwjro"]
+[ext_resource type="PackedScene" uid="uid://d3r1wi4a6i07g" path="res://player.tscn" id="1_fuun5"]
+[ext_resource type="PackedScene" uid="uid://csff5n5xt7ymq" path="res://marshscene/mash_0.tscn" id="2_rb6v6"]
+[ext_resource type="PackedScene" uid="uid://dpjojkmxd334d" path="res://box.tscn" id="3_2jyp0"]
+[ext_resource type="PackedScene" uid="uid://7q56jkur7s8f" path="res://marshscene/mash_1.tscn" id="3_pxa0b"]
+[ext_resource type="PackedScene" uid="uid://c63li40s8hrw3" path="res://marshscene/mash_2.tscn" id="4_x1vnl"]
+[ext_resource type="PackedScene" uid="uid://c8fhtlqo0ndh7" path="res://selectmash.tscn" id="4_xagr8"]
+[ext_resource type="PackedScene" uid="uid://de3tnkgoixvcs" path="res://marshscene/mash_3.tscn" id="5_guel4"]
+[ext_resource type="PackedScene" uid="uid://dpqto4jk6l34u" path="res://marshscene/mash_4.tscn" id="6_5m0ou"]
+[ext_resource type="PackedScene" uid="uid://b87pau353ltgf" path="res://nextmash.tscn" id="6_j40yt"]
+[ext_resource type="PackedScene" uid="uid://bxbepra35gfeb" path="res://marshscene/mash_5.tscn" id="7_amgj8"]
+[ext_resource type="PackedScene" uid="uid://dmhmaspfno7sg" path="res://marshscene/mash_6.tscn" id="8_afclt"]
+[ext_resource type="PackedScene" uid="uid://c32ggek7nm82v" path="res://marshscene/mash_7.tscn" id="9_37a7f"]
+[ext_resource type="PackedScene" uid="uid://o20o4g5itafq" path="res://marshscene/mash_8.tscn" id="10_0nvcb"]
+[ext_resource type="PackedScene" uid="uid://dmmn8iblor27c" path="res://marshscene/mash_9.tscn" id="11_bu3sq"]
+[ext_resource type="Texture2D" uid="uid://b2wxlthlq41x4" path="res://image/died.png" id="11_q27va"]
+[ext_resource type="Texture2D" uid="uid://yjq4rwjnyc8c" path="res://image/bg.png" id="11_u8pkw"]
+[ext_resource type="AudioStream" uid="uid://1ekpvix07h57" path="res://image/BGM.mp3" id="18_k6ial"]
+[ext_resource type="Texture2D" uid="uid://ddbmyghs6ks2c" path="res://image/off.png" id="19_osl4m"]
+[ext_resource type="Texture2D" uid="uid://bgtf0omqlowf1" path="res://image/ON.png" id="20_38jwc"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_bld8b"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7a6lf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rdmmc"]
+size = Vector2(534, 86.5)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jdqr4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_meiph"]
+size = Vector2(113, 697.75)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_v5vqc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2drq4"]
+size = Vector2(110.5, 761.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kd2o6"]
+font_size = 48
+font_color = Color(0, 1, 0.941176, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x32js"]
+size = Vector2(510.5, 20.0945)
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_dwjro")
+mash_scene = Array[PackedScene]([ExtResource("2_rb6v6"), ExtResource("3_pxa0b"), ExtResource("4_x1vnl"), ExtResource("5_guel4"), ExtResource("6_5m0ou"), ExtResource("7_amgj8"), ExtResource("8_afclt"), ExtResource("9_37a7f"), ExtResource("10_0nvcb"), ExtResource("11_bu3sq")])
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = -2.0
+offset_right = 1282.0
+offset_bottom = 716.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_u8pkw")
+expand_mode = 2
+
+[node name="selectmash" parent="." instance=ExtResource("4_xagr8")]
+
+[node name="player" parent="." instance=ExtResource("1_fuun5")]
+position = Vector2(493, 40)
+
+[node name="Sprite2D" type="Sprite2D" parent="player"]
+position = Vector2(1.10486, 306.911)
+scale = Vector2(2.20971, 530.85)
+texture = SubResource("CanvasTexture_bld8b")
+
+[node name="BOX" parent="." instance=ExtResource("3_2jyp0")]
+position = Vector2(489.5, 391.25)
+scale = Vector2(1.15208, 1.0525)
+
+[node name="Nextmash" parent="." instance=ExtResource("6_j40yt")]
+position = Vector2(1074, 183)
+
+[node name="wall_bottom" type="RigidBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_7a6lf")
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_bottom"]
+position = Vector2(496, 745)
+shape = SubResource("RectangleShape2D_rdmmc")
+
+[node name="wall_left" type="RigidBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_jdqr4")
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_left"]
+position = Vector2(196, 355)
+shape = SubResource("RectangleShape2D_meiph")
+
+[node name="wall_right" type="RigidBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_v5vqc")
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_right"]
+position = Vector2(782, 353)
+shape = SubResource("RectangleShape2D_2drq4")
+
+[node name="score" type="Label" parent="."]
+offset_left = 39.0
+offset_top = 234.0
+offset_right = 180.0
+offset_bottom = 319.0
+text = "0"
+label_settings = SubResource("LabelSettings_kd2o6")
+
+[node name="Limit" type="RigidBody2D" parent="."]
+position = Vector2(252, 162)
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limit"]
+position = Vector2(249.75, -33.9534)
+rotation = -3.14159
+shape = SubResource("RectangleShape2D_x32js")
+one_way_collision = true
+
+[node name="GameOver" type="Sprite2D" parent="."]
+visible = false
+show_behind_parent = true
+top_level = true
+position = Vector2(-213, -125)
+scale = Vector2(1.41717, 1.27397)
+texture = ExtResource("11_q27va")
+centered = false
+offset = Vector2(350, 400)
+
+[node name="Button" type="Button" parent="."]
+offset_left = 849.0
+offset_top = 658.0
+offset_right = 1024.0
+offset_bottom = 708.0
+text = "RESTART"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_k6ial")
+volume_db = -16.865
+
+[node name="off" type="TextureButton" parent="."]
+offset_left = 1247.0
+offset_top = 683.0
+offset_right = 1307.0
+offset_bottom = 743.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("19_osl4m")
+
+[node name="on" type="TextureButton" parent="."]
+visible = false
+offset_left = 1247.0
+offset_top = 683.0
+offset_right = 1307.0
+offset_bottom = 743.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("20_38jwc")
+
+[node name="set" type="Sprite2D" parent="."]
+position = Vector2(114, 126)
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="pressed" from="off" to="." method="_on_off_pressed"]
+[connection signal="pressed" from="on" to="." method="_on_on_pressed"]

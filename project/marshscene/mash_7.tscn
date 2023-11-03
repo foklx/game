@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://c32ggek7nm82v"]
+
+[ext_resource type="PackedScene" uid="uid://bw1rawc3hqail" path="res://marshscene/base.tscn" id="1_mmoss"]
+[ext_resource type="PackedScene" uid="uid://o20o4g5itafq" path="res://marshscene/mash_8.tscn" id="2_lmsn3"]
+[ext_resource type="Texture2D" uid="uid://b3va3efhsw48l" path="res://image/mash/7.png" id="2_yarpa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rxr2x"]
+radius = 102.02
+
+[node name="Mash7" instance=ExtResource("1_mmoss")]
+NextMash = ExtResource("2_lmsn3")
+GroupName = "Mash7s"
+score = 100
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(98, 99)
+texture = ExtResource("2_yarpa")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(99, 98)
+shape = SubResource("CircleShape2D_rxr2x")
