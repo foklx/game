@@ -26,17 +26,17 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7a6lf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rdmmc"]
-size = Vector2(534, 86.5)
+size = Vector2(534, 125)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jdqr4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_meiph"]
-size = Vector2(113, 697.75)
+size = Vector2(113, 754.875)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_v5vqc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2drq4"]
-size = Vector2(110.5, 761.5)
+size = Vector2(110.5, 825.75)
 
 [sub_resource type="LabelSettings" id="LabelSettings_kd2o6"]
 font_size = 48
@@ -90,7 +90,7 @@ physics_material_override = SubResource("PhysicsMaterial_7a6lf")
 freeze = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wall_bottom"]
-position = Vector2(496, 745)
+position = Vector2(496, 760.5)
 shape = SubResource("RectangleShape2D_rdmmc")
 
 [node name="wall_left" type="RigidBody2D" parent="."]
@@ -98,7 +98,7 @@ physics_material_override = SubResource("PhysicsMaterial_jdqr4")
 freeze = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wall_left"]
-position = Vector2(196, 378)
+position = Vector2(196, 406.563)
 shape = SubResource("RectangleShape2D_meiph")
 
 [node name="wall_right" type="RigidBody2D" parent="."]
@@ -106,7 +106,7 @@ physics_material_override = SubResource("PhysicsMaterial_v5vqc")
 freeze = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wall_right"]
-position = Vector2(782, 353)
+position = Vector2(782, 386.125)
 shape = SubResource("RectangleShape2D_2drq4")
 
 [node name="score" type="Label" parent="."]
