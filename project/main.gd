@@ -11,17 +11,18 @@ func _ready() -> void:
 	change_image()
 	#$AudioStreamPlayer.playing=true
 	$score.text=str(totalscore)
-
+var c=0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	$selectmash.position=$player.position
 	$selectmash.position.y=$player.position.y+70
-	if !$Button.button_pressed and $start.visible==false:
+	if !$Button.button_pressed:
 		if Input.is_action_just_pressed("drop"):
 			if $selectmash.visible:
 				if !$GameOver.visible:
 					drop()
 					await get_tree().create_timer(0.5).timeout
+					
 					change_image()
 		if Input.is_action_just_pressed("set"):
 			if $selectmash.visible:
@@ -77,12 +78,13 @@ func _on_button_pressed() -> void:
 	$TIME.stop()
 	min=0
 	sec=0
-	$start.visible=true
 	$TIME/Label.text=str(min)+":"+'0'+str(sec)
 	totalscore=0
 	setindex=-1
 	$set.texture=ImageTexture.new()
 	$score.text=str(totalscore)
+	$TIME.start()
+	c=0
 	change_image()
 
 
@@ -114,8 +116,4 @@ func _on_time_timeout() -> void:
 	else:
 		$TIME/Label.text=str(min)+":"+str(sec)
 
-
-func _on_start_pressed() -> void:
-	$TIME.start()
-	$start.visible=false
 	

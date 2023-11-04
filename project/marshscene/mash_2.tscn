@@ -13,7 +13,7 @@ GroupName = "Mash2s"
 score = 6
 
 [node name="Sprite2D" parent="." index="0"]
-scale = Vector2(0.984848, 1)
+scale = Vector2(1, 1.015)
 texture = ExtResource("2_j7hdg")
 
 [node name="CollisionShape2D" parent="." index="1"]

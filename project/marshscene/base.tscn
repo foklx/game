@@ -1,9 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://bw1rawc3hqail"]
+[gd_scene load_steps=3 format=3 uid="uid://bw1rawc3hqail"]
 
 [ext_resource type="Script" path="res://base.gd" id="1_hk503"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g0qat"]
+
 [node name="RigidBody2D" type="RigidBody2D" groups=["Mashs"]]
-max_contacts_reported = 5
+physics_material_override = SubResource("PhysicsMaterial_g0qat")
+max_contacts_reported = 2
 contact_monitor = true
 script = ExtResource("1_hk503")
 

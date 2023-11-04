@@ -1,1 +1,12 @@
 res://main.tscn
+res://base.gd
+res://marshscene/mash_8.tscn
+res://marshscene/mash_9.tscn
+res://marshscene/mash_7.tscn
+res://marshscene/mash_6.tscn
+res://marshscene/mash_5.tscn
+res://marshscene/mash_4.tscn
+res://marshscene/mash_3.tscn
+res://marshscene/mash_2.tscn
+res://main.gd
+res://marshscene/base.tscn

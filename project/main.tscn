@@ -54,24 +54,17 @@ script = ExtResource("1_dwjro")
 mash_scene = Array[PackedScene]([ExtResource("2_rb6v6"), ExtResource("3_pxa0b"), ExtResource("4_x1vnl"), ExtResource("5_guel4"), ExtResource("6_5m0ou"), ExtResource("7_amgj8"), ExtResource("8_afclt"), ExtResource("9_37a7f"), ExtResource("10_0nvcb"), ExtResource("11_bu3sq")])
 
 [node name="TextureRect" type="TextureRect" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 1.0
-offset_top = -2.0
-offset_right = 1282.0
-offset_bottom = 716.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = -1
+offset_right = 1281.0
+offset_bottom = 718.0
 texture = ExtResource("11_u8pkw")
 expand_mode = 2
 
 [node name="selectmash" parent="." instance=ExtResource("4_xagr8")]
+metadata/_edit_lock_ = true
 
 [node name="player" parent="." instance=ExtResource("1_fuun5")]
-position = Vector2(493, 40)
+position = Vector2(496, 37)
 
 [node name="Sprite2D" type="Sprite2D" parent="player"]
 position = Vector2(1.10486, 306.911)
@@ -79,8 +72,8 @@ scale = Vector2(2.20971, 530.85)
 texture = SubResource("CanvasTexture_bld8b")
 
 [node name="BOX" parent="." instance=ExtResource("3_2jyp0")]
-position = Vector2(489.5, 391.25)
-scale = Vector2(1.15208, 1.0525)
+position = Vector2(489.5, 394.75)
+scale = Vector2(1.15208, 1.06417)
 
 [node name="Nextmash" parent="." instance=ExtResource("6_j40yt")]
 position = Vector2(1074, 183)
@@ -88,22 +81,25 @@ position = Vector2(1074, 183)
 [node name="wall_bottom" type="RigidBody2D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_7a6lf")
 freeze = true
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wall_bottom"]
-position = Vector2(496, 760.5)
+position = Vector2(496, 773.5)
 shape = SubResource("RectangleShape2D_rdmmc")
 
 [node name="wall_left" type="RigidBody2D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_jdqr4")
 freeze = true
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wall_left"]
-position = Vector2(196, 406.563)
+position = Vector2(197, 406.563)
 shape = SubResource("RectangleShape2D_meiph")
 
 [node name="wall_right" type="RigidBody2D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_v5vqc")
 freeze = true
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wall_right"]
 position = Vector2(782, 386.125)
@@ -169,6 +165,7 @@ texture_normal = ExtResource("20_38jwc")
 position = Vector2(114, 126)
 
 [node name="TIME" type="Timer" parent="."]
+autostart = true
 
 [node name="Label" type="Label" parent="TIME"]
 offset_left = 1066.0
@@ -177,16 +174,8 @@ offset_right = 1280.0
 offset_bottom = 58.0
 label_settings = SubResource("LabelSettings_eklgd")
 
-[node name="start" type="Button" parent="."]
-offset_left = 369.0
-offset_top = 379.0
-offset_right = 589.0
-offset_bottom = 438.0
-text = "START"
-
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
 [connection signal="pressed" from="off" to="." method="_on_off_pressed"]
 [connection signal="pressed" from="on" to="." method="_on_on_pressed"]
 [connection signal="timeout" from="TIME" to="." method="_on_time_timeout"]
-[connection signal="pressed" from="start" to="." method="_on_start_pressed"]

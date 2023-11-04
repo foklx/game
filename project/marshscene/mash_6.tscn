@@ -13,9 +13,7 @@ GroupName = "Mash6s"
 score = 50
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(82, 81)
 texture = ExtResource("2_328fb")
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(82, 81)
 shape = SubResource("CircleShape2D_kjumj")

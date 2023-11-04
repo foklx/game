@@ -12,25 +12,6 @@ func  setCheck():
 	is_check=true
 
 	
-func _on_body_entered(body: Node) -> void:
-	if NextMash:
-		if body.is_in_group(GroupName):
-			if body.position>=position:
-				if !body.isCheck():
-						is_check=true
-						body.setCheck()
-						var pop_mash=NextMash.instantiate()
-						var pop_pos=(body.position+position)/2
-						pop_mash.position=pop_pos
-						get_parent().call_deferred("add_child",pop_mash)
-						#get_parent().add_child(pop_mash)
-						#get_parent().call_deferred("add_score",score)
-						get_parent().add_score(score)
-						body.queue_free()
-						queue_free()
-	if body.name=="Limit":
-		get_parent().call_deferred("game_over")
-
 func jump_out():
 #	var bottleCenter = Vector2(470,361)
 #	var forceDirection = (position - bottleCenter).normalized()
@@ -41,3 +22,27 @@ func jump_out():
 #	apply_central_impulse(shootForce)
 	$CollisionShape2D.set_deferred("disabled",true)
 	
+
+
+
+func _on_body_entered(body: Node) -> void:
+	
+	if NextMash:
+		if body.is_in_group(GroupName):
+			if body.position>=position:
+				if !body.isCheck():
+						is_check=true
+						body.setCheck()
+						var pop_mash=NextMash.instantiate()
+						var pop_pos=(body.position+position)/2
+						pop_mash.position=pop_pos
+						body.queue_free()
+						
+						get_parent().call_deferred("add_child",pop_mash)
+						queue_free()
+						get_parent().add_score(score) 
+
+
+	if body.name=="Limit":
+		get_parent().call_deferred("game_over")
+
