@@ -66,14 +66,14 @@ func add_score(score):
 func game_over():
 	$selectmash.hide()
 	$GameOver.show()
-	$Limit.get_node("CollisionShape2D").set_deferred("disabled",true)
+	#$Limit.get_node("CollisionShape2D").set_deferred("disabled",true)
 	$TIME.stop()
 
 
 func _on_button_pressed() -> void:
 	$selectmash.show()
 	$GameOver.hide()
-	$Limit.get_node("CollisionShape2D").set_deferred("disabled",false)
+	#$Limit.get_node("CollisionShape2D").set_deferred("disabled",false)
 	get_tree().call_group("Mashs","jump_out")
 	$TIME.stop()
 	min=0
@@ -117,3 +117,11 @@ func _on_time_timeout() -> void:
 		$TIME/Label.text=str(min)+":"+str(sec)
 
 	
+func pop_particle(pos):
+	$Particles_star.position=pos
+	$Particles_star.set_deferred("emitting",true)
+
+
+
+
+

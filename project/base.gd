@@ -11,7 +11,6 @@ func  isCheck():
 func  setCheck():
 	is_check=true
 
-	
 func jump_out():
 #	var bottleCenter = Vector2(470,361)
 #	var forceDirection = (position - bottleCenter).normalized()
@@ -22,7 +21,6 @@ func jump_out():
 #	apply_central_impulse(shootForce)
 	$CollisionShape2D.set_deferred("disabled",true)
 	
-
 
 
 func _on_body_entered(body: Node) -> void:
@@ -36,13 +34,18 @@ func _on_body_entered(body: Node) -> void:
 						var pop_mash=NextMash.instantiate()
 						var pop_pos=(body.position+position)/2
 						pop_mash.position=pop_pos
-						body.queue_free()
-						
 						get_parent().call_deferred("add_child",pop_mash)
-						queue_free()
 						get_parent().add_score(score) 
+						get_parent().pop_particle(pop_pos)
+						body.queue_free()
+						queue_free()
+	if position.y<175:
+		await get_tree().create_timer(1).timeout
+		if position.y<175:
+			get_parent().call_deferred("game_over")
 
 
-	if body.name=="Limit":
-		get_parent().call_deferred("game_over")
 
+
+
+	
